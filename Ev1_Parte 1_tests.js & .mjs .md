@@ -17,8 +17,7 @@
 Empieza por ejecutar la promesa que se resuelve para pasar a la funcion asincrona, luego los process.nextTick() se ejecutan apenas 
 termine la fase actual en vez de esperar a que el loop termine, diferente de los setImmediate que corren luego de la fase de I/O polling y Callbacks,
 luego se ejecutan las promesas que siguen despues de la fase donde se ejecuto la funcion asincrona. Para Microtask 1 y 2, el event loop
-ejecuta todas las microtareas en la cola de microtareas. Despues el loop reinicia para ejecutar los setTimeouts, luego se ejecutan los setImmediate ya que no hay ningun poll pendiente, 
-y termina la ejecucion del programa.
+ejecuta todas las microtareas en la cola de microtareas. Despues el loop reinicia para ejecutar los setTimeouts, luego se ejecutan los setImmediate ya que no hay ningun poll pendiente, y termina la ejecucion del programa.
 
 
 # Para test2.js tenemos el siguiente orden:
@@ -41,7 +40,8 @@ Este fichero tiene un rendimiento parecido al anterior, la diferencia radica en 
 un readFile, luego de que se lee el archivo se instancia la promesa new promise, luego se espera a que
 lleguen a las fases de poll despues de los timers.
 
-# Para test3.mjs tenemos que el codigo esta escrito de la misma manera que el test1.js, con la diferencia de que es un archivo
+# Para test3.mjs tenemos:
+El codigo esta escrito de la misma manera que el test1.js, con la diferencia de que es un archivo
 ECMAScript6, esto quiere decir que influye en el orden de ejecucion del codigo.
 
 Como el primer ejemplo tenemos que se ejecuta primero new promise y async function.
