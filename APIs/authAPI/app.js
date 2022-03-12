@@ -3,12 +3,18 @@ require("./config/database").connect();
 const express = require("express");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const cors = require("cors");
 
 const auth = require("./middleware/auth");
 
 const app = express();
 
+//Initializations
 app.use(express.json());
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 //Logic
 //Routes
@@ -96,10 +102,6 @@ app.post("/login", async (req, res) => {
       } catch (err) {
         console.log(err);
       }
-});
-
-app.post("/welcome", auth, (req, res) => {
-  res.status(200).send("Welcome 🙌 ");
 });
 
 module.exports = app;

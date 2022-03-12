@@ -24,13 +24,13 @@ const Cars = require("./models/Cars");
 //Get cars
 app.get('/cars', async (req, res) => {
     const cars = await Cars.find();
-
+    console.log('showing car collection')
     res.json(cars);
 })
 
 
 //Post cars
-app.post('/cars', async (req, res) => {
+app.post('/createcars', async (req, res) => {
     //Get inputs
     const {brand, model} = req.body;
 
@@ -41,4 +41,11 @@ app.post('/cars', async (req, res) => {
     })
 
     res.status(201).json(car);
+    res.status(201).send("added to db");
 })
+
+//Delete cars
+app.delete('/deletecars/:brand', async (req, res) => {
+    await res.cars.delete();
+    res.json("Car deleted")
+}) ;
