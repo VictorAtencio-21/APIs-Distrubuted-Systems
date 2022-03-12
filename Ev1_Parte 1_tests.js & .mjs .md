@@ -40,7 +40,8 @@ Este fichero tiene un rendimiento parecido al anterior, la diferencia radica en 
 un readFile, luego de que se lee el archivo se instancia la promesa new promise, luego se espera a que
 lleguen a las fases de poll despues de los timers.
 
-Para test3.mjs tenemos que el codigo esta escrito de la misma manera que el test1.js, con la diferencia de que es un archivo
+# Para test3.mjs tenemos:
+El codigo esta escrito de la misma manera que el test1.js, con la diferencia de que es un archivo
 ECMAScript6, esto quiere decir que influye en el orden de ejecucion del codigo.
 
 Como el primer ejemplo tenemos que se ejecuta primero new promise y async function.
